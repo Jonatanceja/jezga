@@ -6,6 +6,7 @@
 /.vscode/
 npm-debug.log
 hot
+.DS_Store
 
 # Optional ignores
 /build_staging/

@@ -1,1 +1,57 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    /* Brand — JEZGA red (#C72D29) with tonal variations */
+    --color-brand-50: #fbf4f3;
+    --color-brand-100: #f7e4e3;
+    --color-brand-200: #f0c7c5;
+    --color-brand-300: #e5a19e;
+    --color-brand-400: #d97470;
+    --color-brand-500: #cf4d48;
+    --color-brand-600: #c72d29;
+    --color-brand-700: #a62220;
+    --color-brand-800: #871d1b;
+    --color-brand-900: #701d1b;
+    --color-brand-950: #3d0a09;
+
+    /* Typography */
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Space Grotesk", "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+@layer base {
+    body {
+        @apply bg-white font-sans text-gray-600 antialiased;
+    }
+
+    h1, h2, h3, h4 {
+        @apply font-display text-gray-900;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    ::selection {
+        @apply bg-brand-600 text-white;
+    }
+}
+
+@utility container-x {
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-10;
+}
+
+@utility label-mono {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.2em] text-gray-400;
+}
+
+@utility animate-scan {
+    animation: scan 2.4s linear infinite;
+}
+
+@keyframes scan {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
