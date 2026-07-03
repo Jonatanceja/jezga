@@ -1,0 +1,16 @@
+---
+deployment:
+  tasks:
+    # === Ruta de publicación (document root) ===
+    # Dominio principal:  $HOME/public_html
+    # Subdominio/addon:   ajusta a su carpeta, p. ej. $HOME/jezga.com.mx
+    - export DEPLOYPATH=$HOME/public_html
+    - /bin/mkdir -p "$DEPLOYPATH/assets"
+
+    # Publica el sitio ya compilado (build_production) al document root.
+    # Se excluye contacto-smtp-config.php para no sobrescribir las
+    # credenciales SMTP que edites en el servidor.
+    - /usr/bin/rsync -a --exclude 'assets/contacto-smtp-config.php' build_production/ "$DEPLOYPATH/"
+
+    # Crea el archivo de credenciales SMTP solo la primera vez (no lo pisa).
+    - /bin/cp -n build_production/assets/contacto-smtp-config.php "$DEPLOYPATH/assets/contacto-smtp-config.php"
