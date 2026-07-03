@@ -13,7 +13,7 @@ return [
     // Open Graph / social share defaults. Pages override title/description
     // automatically; collection items also override the image with their cover.
     'openGraph' => [
-        'image'   => '/assets/images/foto-1-100.jpg',
+        'image'   => '/assets/images/open-graph.jpg',
         'type'    => 'website',
         'locale'  => 'es_MX',
         'twitter' => 'summary_large_image',
